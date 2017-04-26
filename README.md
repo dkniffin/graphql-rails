@@ -8,9 +8,15 @@ To configure GraphQL create `config/initializers/graphql.rb` and use following c
 GraphQL::Rails.configure do |config|
   config.debug = ::Rails.env.development?
   config.camel_case = true
-  
+
   # other options
 end
+```
+
+Add this to your `config/routes.rb`
+
+```ruby
+  mount GraphQL::Rails::Engine => '/api/graph'
 ```
 
 Following options are supported (from `lib/graphql/rails/config.rb`):
@@ -57,7 +63,7 @@ Add `graph/operations/create_organization_with_user.rb`:
 
 ```ruby
 class CreateOrganizationWithUser < GraphQL::Rails::Operations
-  
+
   mutation create_organization_with_user: {token: String, user: GraphQL::Rails::Types.resolve(UserInterface)} do
     description 'Creates organization with first user'
 
@@ -73,7 +79,7 @@ class CreateOrganizationWithUser < GraphQL::Rails::Operations
       }
     end
   end
-  
+
 end
 ```
 
