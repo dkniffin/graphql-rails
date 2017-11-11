@@ -4,10 +4,10 @@ module GraphQL
       Rails.logger.debug 'Loading Mongoid extensions'
 
       # Use the built-in RelationConnection to handle Mongoid relations.
-      GraphQL::Relay::BaseConnection.register_connection_implementation(
-        ::Mongoid::Relations::Targets::Enumerable,
-        GraphQL::Relay::RelationConnection
-      )
+      # GraphQL::Relay::BaseConnection.register_connection_implementation(
+      #   ::Mongoid::Relations::Targets::Enumerable,
+      #   GraphQL::Relay::RelationConnection
+      # )
 
       # Mongoid type extension for the GraphQL type system.
       module Mongoid
